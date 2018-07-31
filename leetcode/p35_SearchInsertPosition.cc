@@ -1,4 +1,4 @@
-/**
+/*
  * Problem: Search Insert Position
  *
  * Description: Give a stroed array and a target value, return the index if the
@@ -42,7 +42,13 @@ public:
      */
     int SearchInsert_v1(std::vector<int>& nums, int target) 
     {
-        return 0;    
+        std::vector<int>::iterator it;
+        for (it = nums.begin(); it != nums.end(); ++it) {
+            if (*it >= target) {
+                break;
+            }
+        }
+        return (it - nums.begin()); 
     }
 
     /**
@@ -51,6 +57,9 @@ public:
     int SearchInsert_v2(std::vector<int>& nums, int target)
     {
         std::vector<int>::iterator it;
+        // returns an iterator pointing to the first element in the range
+        // [first, last) that is less than value, or last if no such element is
+        // found.
         it = std::lower_bound(nums.begin(), nums.end(), target);
         return (it - nums.begin());
     }
@@ -62,7 +71,7 @@ int main(int argc, char* argv[])
     int output;
     Solution solution;
     for (unsigned i = 0; i < cases_nb; ++i) {
-        //solution.SearchInsert_v1();
+        output = solution.SearchInsert_v1(cases[i].array, cases[i].target);
         std::cout << "v1 output: " << output << ", ";
         output = solution.SearchInsert_v2(cases[i].array, cases[i].target);
         std::cout << "v2 output: " << output << '\n';
