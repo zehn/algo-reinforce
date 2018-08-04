@@ -64,6 +64,9 @@ public:
 int main(int argc, char* argv[])
 {
     Solution solution;
-//    solution.findMedianSortedArrays();
+    
+    std::vector<int> nums1 = {1, 2};
+    std::vector<int> nums2 = {3, 4};
+    std::cout << solution.findMedianSortedArrays(nums1, nums2) << std::endl;
     return 0;
 }
