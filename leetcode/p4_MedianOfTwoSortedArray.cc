@@ -21,8 +21,8 @@ class Solution {
 public:
     double findMedianSortedArrays(std::vector<int>& nums1, std::vector<int>& nums2)
     {
-        int m = (int)nums1.size();
-        int n = (int)nums2.size();
+        int m = static_cast<int>(nums1.size());
+        int n = static_cast<int>(nums2.size());
         int max_of_left;
         int min_of_right;
 
